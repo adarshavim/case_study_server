@@ -17,13 +17,13 @@ module.exports=()=>{
        </head>
        <body>
             <div> 
-                <img src="https://temp-casestudy-app.herokuapp.com/image/img1.png" alt="img1"/>
+                <img src="http://localhost:5000/image/img1.png" alt="img1"/>
             </div>
             <div class="break-before">
-                 <img src="https://temp-casestudy-app.herokuapp.com/image/img2.png" alt="img2"/>
+                 <img src="http://localhost:5000/image/img2.png" alt="img2"/>
             </div>
             <div class="break-before">
-                <img src="https://temp-casestudy-app.herokuapp.com/image/img3.png" alt="img3"/>
+                <img src="http://localhost:5000/image/img3.png" alt="img3"/>
             </div>
        </body>
     </html>
