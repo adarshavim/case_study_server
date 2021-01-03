@@ -93,7 +93,7 @@ app.post('/api/form',(req,res)=>{
                 to: req.body.receiveremail,// list of receivers 
                 subject: "Analysis Data", // Subject line
                 attachments: [
-                    { filename: 'result.pdf', path: './result.pdf' } // TODO: replace it with your own image
+                    { filename: 'result.pdf', path: 'https://temp-casestudy-app.herokuapp.com/result.pdf' } // TODO: replace it with your own image
                 ]
                 
               }
