@@ -74,7 +74,7 @@ app.get('/fetch-pdf', (req, res) => {
 app.post('/api/form',(req,res)=>{
     pdf.create(pdfTemplate(), {}).toFile('result.pdf', (err) => {
         if(err) {
-            res.send('sharing failed');
+            res.send('creation failed');
         }
 
         nodemailer.createTestAccount((err,account)=>{
@@ -93,7 +93,7 @@ app.post('/api/form',(req,res)=>{
                 to: req.body.receiveremail,// list of receivers 
                 subject: "Analysis Data", // Subject line
                 attachments: [
-                    { filename: 'result.pdf', path: 'https://temp-casestudy-app.herokuapp.com/result.pdf' } // TODO: replace it with your own image
+                    { filename: 'result.pdf', path: `${__dirname}/result.pdf` } // TODO: replace it with your own image
                 ]
                 
               }
