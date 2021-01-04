@@ -57,7 +57,7 @@ app.use(bodyParser.json());
 
 
 app.post('/create-pdf', (req, res) => {
-    pdf.create(pdfTemplate(), {}).toFile(`${__dirname}/result.pdf`, (err) => {
+    pdf.create(pdfTemplate(), {}).toFile("result.pdf", (err) => {
         if(err) {
             res.send(Promise.reject());
         }
