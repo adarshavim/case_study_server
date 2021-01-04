@@ -57,7 +57,7 @@ app.use(bodyParser.json());
 
 
 app.post('/create-pdf', (req, res) => {
-    pdf.create(pdfTemplate(), {}).toFile('./public/result.pdf', (err) => {
+    pdf.create(pdfTemplate(), {}).toFile(`${__dirname}/result.pdf`, (err) => {
         if(err) {
             res.send(Promise.reject());
         }
@@ -67,7 +67,7 @@ app.post('/create-pdf', (req, res) => {
 });
 
 app.get('/fetch-pdf', (req, res) => {
-    res.sendFile(`${__dirname}/public/result.pdf`)
+    res.sendFile(`${__dirname}/result.pdf`)
 })
 
 
@@ -89,7 +89,7 @@ app.post('/api/form',(req,res)=>{
                 to: req.body.receiveremail,// list of receivers 
                 subject: "Analysis Data", // Subject line
                 attachments: [
-                    { filename: 'result.pdf', path: `${__dirname}/public/result.pdf` } // TODO: replace it with your own image
+                    { filename: 'result.pdf', path: `${__dirname}/result.pdf` } // TODO: replace it with your own image
                 ]
                 
               }
