@@ -36,7 +36,7 @@ app.post("/public", upload.single('image'), (req, res) => {
 
     res.json({
         success: 1,
-        profile_url: `http://localhost:5000/image/${req.file.filename}`
+        profile_url: `https://temp-casestudy-app.herokuapp.com/image/${req.file.filename}`
     })
 })
 
@@ -57,7 +57,7 @@ app.use(bodyParser.json());
 
 
 app.post('/create-pdf', (req, res) => {
-    pdf.create(pdfTemplate(), {}).toFile('result.pdf', (err) => {
+    pdf.create(pdfTemplate(), {}).toFile('./public/result.pdf', (err) => {
         if(err) {
             res.send(Promise.reject());
         }
@@ -67,7 +67,7 @@ app.post('/create-pdf', (req, res) => {
 });
 
 app.get('/fetch-pdf', (req, res) => {
-    res.sendFile(`${__dirname}/result.pdf`)
+    res.sendFile(`${__dirname}/public/result.pdf`)
 })
 
 
@@ -89,7 +89,7 @@ app.post('/api/form',(req,res)=>{
                 to: req.body.receiveremail,// list of receivers 
                 subject: "Analysis Data", // Subject line
                 attachments: [
-                    { filename: 'result.pdf', path: "./result.pdf" } // TODO: replace it with your own image
+                    { filename: 'result.pdf', path: `${__dirname}/public/result.pdf` } // TODO: replace it with your own image
                 ]
                 
               }
